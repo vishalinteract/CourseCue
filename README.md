@@ -1,4 +1,4 @@
-# EduRecSys V2 — Education Platform Content Recommendation (IIT Ropar Project)
+# CourseCue — Education Platform Content Recommendation (IIT Ropar Project)
 
 A best‑practice, end‑to‑end recommendation system for an e‑learning platform that suggests **courses/modules** to each learner using a **two‑stage retrieval + ranking** pipeline. 
 Designed to mirror industry patterns while mapping directly to the assignment rubric.

@@ -1,0 +1,41 @@
+# Global config for EduRecSys V2
+project:
+  name: EduRecSys V2
+  seed: 42
+
+paths:
+  data_dir: data/raw
+  processed_dir: data/processed
+  model_dir: data/processed/models
+  artifacts_dir: data/processed/artifacts
+
+dataset:
+  name: oulad # options: oulad | assistments | ednet
+  min_user_interactions: 5
+  min_item_interactions: 5
+  train_val_test_days: [0, 21, 35]  # relative temporal split windows (demo)
+
+negative_sampling:
+  num_negatives_per_pos: 4
+  strategy: 'uniform'  # or 'popularity'
+
+features:
+  text_fields: ['title', 'description']  # used by content-based model
+  normalize_continuous: true
+
+models:
+  popularity:
+    top_k: 100
+  tfidf:
+    max_features: 5000
+    ngram_range: [1, 2]
+  bpr:
+    embedding_dim: 64
+    lr: 0.01
+    weight_decay: 0.0
+    epochs: 10
+    batch_size: 4096
+
+evaluation:
+  ks: [5, 10, 20]
+  metrics: ['ndcg', 'hitrate', 'mrr']
